@@ -1,6 +1,9 @@
 Team Phi
+
 Rishab Chakravarthy, rchakravarth 
+
 Zach Reynolds, ztreyenolds
+
 Kenny Duong, kennyvduong
 
 **Pt 0. Data Interactions:**
