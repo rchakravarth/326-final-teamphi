@@ -1,0 +1,40 @@
+.section1 {
+    background-color: maroon;
+    background-image: url('foodbackground.jpg'); 
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 65% 72%;
+}
+
+.h3 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+}
+
+.body {
+    border: white;
+    border-width: 20 px;
+}
+
+.frame {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ccc;
+    background: #eee;
+    margin: auto;
+    padding: 15px 10px;
+}
+
+.outlinedtext{
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+     
+
+.col-sm{
+    background-color: maroon;
+    color: white;
+}
+
