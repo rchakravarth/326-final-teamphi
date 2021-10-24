@@ -28,4 +28,4 @@ more buttons to save meals to profile for example, menu buttons for navigation, 
 
 HTML files (Kenny Duong)
 I create the sign in page for the program (10-22). Eventually I would create an button such as "remember password" and have it running with scripts. Create an account would be implicated in another way but run similiarly to the sign in. I also created the choices of food items (10-23). There will be more fixes and tweaks to be made but for now it has the selector. Rishab was able to adjust the background of the sign in page as well as separate any inline CSS in the sign in HTML code and put it in a separate file (10/22). Rishab also worked on the meal_builder.html file by dividing up the format into 3 columns like shown in the wireframe using 
-Bootstrap's Grid Layout (10/22).
+Bootstrap's Grid Layout (10/22). Zach assisted with working on the columns and buttons apart of the meal_builder.html.
