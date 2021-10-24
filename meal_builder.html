@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <div class="row">
-          <div class="col-sm py-5 h-100">
+          <div class="col-sm py-5 h-1000">
               <h3 class ="text-center outlinedtext mb-3">Choice of:</h3>
             <select class= "form-select form-select-lg mb-5"  id = "protein">
                 <option selected>Protein</option>
@@ -28,12 +28,23 @@
                 <option selected>Add-ons</option>
             </select>
           </div>
-          <div class="col-sm">
-            One of three columns
+          <div class="col-sm py-5 h-1000">
+            <h3 class ="text-center outlinedtext mb-3">Selections</h3>
+            <ul class= "list-group-lg" style="list-style-type:none;">
+              <br>
+              <li class="list-group-item rounded-3 mb-5" id="Prot">Protein</li>
+              <li class="list-group-item rounded-3 mb-5" id="Carb">Carbs</li>
+              <li class="list-group-item rounded-3 mb-5" id="Veg">Vegetable</li>
+              <li class="list-group-item rounded-3 mb-5" id="Cond">Condiments</li>
+              <li class="list-group-item rounded-3 mb-5" id="ao">Add-ons</li>
+              <br> <br>
+              <li class="list-group-item rounded-3" id="total">Total: $$$$</li>
+            </ul>  
           </div>
           <div class="col-sm">
             One of three columns
           </div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" id="save">Save to Profile</button>
         </div>
       </div>
 </body>
