@@ -6,7 +6,7 @@ Zach Reynolds, ztreyenolds
 
 Kenny Duong, kennyvduong
 
-**Part 0: **
+**Part 0:**
 
 Potential API endpoints to use:
 
@@ -18,9 +18,9 @@ Potential API endpoints to use:
 
 /user/id/mealbuilder --> page to create the meals from the given options
 
-**Part 2: **
+**Part 2:**
 
 
-**Breakdown of labor: **
+**Breakdown of labor:**
 
 Rishab Chakravarthy: Created dummy server, created markdown 2 document, linked github repo to Heroku
