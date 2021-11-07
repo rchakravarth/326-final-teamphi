@@ -24,3 +24,5 @@ Potential API endpoints to use:
 **Breakdown of labor:**
 
 Rishab Chakravarthy: Created dummy server, created markdown 2 document, linked github repo to Heroku
+
+Kenny Duong: Added js coding into login page.
