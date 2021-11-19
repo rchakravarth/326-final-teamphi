@@ -1,5 +1,11 @@
 'use strict';
 
+import {createRequire} from 'module';
+const require = createRequire(import.meta.url);
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // For loading environment variables.
 require('dotenv').config();
 
@@ -46,6 +52,7 @@ app.use(expressSession(session));
 passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(__dirname));
 
 // Convert user object to a unique identifier.
 passport.serializeUser((user, done) => {
@@ -123,6 +130,13 @@ app.get('/user/new',(req, res) => {
 app.get('/user/id/mealbuilder',(req, res) => {
     res.send({"name: ": faker.name.findName()})
 });
+
+app.get('/',
+	checkLoggedIn,
+	(req, res) => {
+	    res.send("hello world");
+	});
+
 
 app.post('/login',
 	 passport.authenticate('local' , {     // use username/password authentication
