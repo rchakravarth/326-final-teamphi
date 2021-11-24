@@ -45,7 +45,7 @@
     "addons":
         {
             "greek yogurt cup":{"calories":80,"protein": 14, "fat":3, "carb":6, "price": 2.00},
-            "chocolate chip cookie":{"calories":220,"protein": 3, "fat":11, "carb":30, "price": .99},
+            "chocolate chip cookie":{"calories":220,"protein": 3, "fat":11, "carb":30, "price": 0.99},
             "banana":{"calories":100,"protein": 0, "fat":0, "carb":25, "price": 0.3},
             "apple":{"calories":110,"protein": 2, "fat":0, "carb":25, "price": 0.4},
             "orange":{"calories":80,"protein": 1, "fat":0, "carb":19, "price": 0.3}
