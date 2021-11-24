@@ -1,7 +1,7 @@
 {
     "protein":[
         {
-            "tenderloin":{"calories":110,"protein": 25, "fat":0.5, "carb":0, "price": 6.99},
+            "chicken tenderloin":{"calories":110,"protein": 25, "fat":0.5, "carb":0, "price": 6.99},
             "chicken breast":{"calories":126,"protein": 25, "fat":2.9, "carb":0, "price": 3.99},
             "rotiserie chicken":{"calories":220,"protein": 32.8, "fat":9.6, "carb":0, "price": 7.99},
             "boneless skinless chicken thigh":{"calories":184,"protein": 27, "fat":8.7, "carb":0, "price":3.49},
