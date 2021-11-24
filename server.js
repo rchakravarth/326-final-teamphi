@@ -69,7 +69,7 @@ app.use(express.urlencoded({'extended' : true})); // allow URLencoded data
 /////
 
 // we use an in-memory "database"; this isn't persistent but is easy
-let users = { 'emery' : 'compsci326' } // default user
+let users = { 'usertest@gmail.com' : '123' } // default user
 let userMap = {};
 
 // Returns true iff the user exists.
@@ -145,7 +145,7 @@ app.post('/login',
 	 }));
 
 app.get('/login',
-	(req, res) => res.sendFile('./sign_in.html',
+	(req, res) => res.sendFile('sign_in.html',
 				   { 'root' : __dirname }));
 
 // Handle logging out (takes us back to the login page).
@@ -155,15 +155,12 @@ app.get('/logout', (req, res) => {
 });
 
 
-// Add a new user and password IFF one doesn't exist already.
-// If we successfully add a new user, go to /login, else, back to /register.
-// Use req.body to access data (as in, req.body['username']).
-// Use res.redirect to change URLs.
-// TODO
+
 app.post('/register',
 	 (req, res) => {
 	     const username = req.body['username'];
 	     const password = req.body['password'];
+		 console.log("okay lets go")
 	     // TODO
 	     // Check if we successfully added the user.
 	     // If so, redirect to '/login'
@@ -177,7 +174,7 @@ app.post('/register',
 	 });
 
 app.get('/register',
-	(req, res) => res.sendFile('./register.html',
+	(req, res) => res.sendFile('register.html',
 				   { 'root' : __dirname }));
 
 // Private data
