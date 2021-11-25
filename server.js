@@ -28,12 +28,12 @@ const session = {
 // Passport configuration
 
 const strategy = new LocalStrategy(
-    async (username, password, done) => {
-	if (!findUser(username)) {
+    async (email, password, done) => {
+	if (!findUser(email)) {
 	    // no such user
-	    return done(null, false, { 'message' : 'Wrong username' });
+	    return done(null, false, { 'message' : 'Wrong email' });
 	}
-	if (!validatePassword(username, password)) {
+	if (!validatePassword(email, password)) {
 	    // invalid password
 	    // should disable logins after N messages
 	    // delay return to rate-limit brute-force attacks
@@ -42,7 +42,7 @@ const strategy = new LocalStrategy(
 	}
 	// success!
 	// should create a user object here, associated with a unique identifier
-	return done(null, username);
+	return done(null, email);
     });
 
 
@@ -55,8 +55,8 @@ app.use(passport.session());
 app.use(express.static(__dirname));
 
 // Convert user object to a unique identifier.
-passport.serializeUser((user, done) => {
-    done(null, user);
+passport.serializeUser((email, done) => {
+    done(null, email);
 });
 // Convert a unique identifier to a user object.
 passport.deserializeUser((uid, done) => {
@@ -98,9 +98,11 @@ function validatePassword(name, pwd) {
 function addUser(name, pwd) {
 	if(!findUser(name)) {
 		users[name] = pwd;
+		
 		return true;
 	}
 	else {
+		
 		return false;
 	}
 }
@@ -109,13 +111,15 @@ function addUser(name, pwd) {
 
 function checkLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
+		
 	next();
     } else {
+		
 	res.redirect('/login');
     }
 }
 
-app.get('/user/id/saved-meals',(req, res) => {
+/*app.get('/user/id/saved-meals',(req, res) => {
     res.send({"name: ": faker.name.findName()})
 });
 
@@ -129,7 +133,7 @@ app.get('/user/new',(req, res) => {
 
 app.get('/user/id/mealbuilder',(req, res) => {
     res.send({"name: ": faker.name.findName()})
-});
+});*/
 
 app.get('/',
 	checkLoggedIn,
@@ -158,14 +162,14 @@ app.get('/logout', (req, res) => {
 
 app.post('/register',
 	 (req, res) => {
-	     const username = req.body['username'];
+	     const email = req.body['email'];
 	     const password = req.body['password'];
-		 console.log("okay lets go")
+		 
 	     // TODO
 	     // Check if we successfully added the user.
 	     // If so, redirect to '/login'
 	     // If not, redirect to '/register'.
-		 if (addUser(username, password) === true) {
+		 if (addUser(email, password)) {
 			res.redirect('/login');
 		 }
 		 else {
@@ -178,11 +182,16 @@ app.get('/register',
 				   { 'root' : __dirname }));
 
 // Private data
+app.get('/meal',
+	 (req, res) => res.sendFile('meal_builder.html',
+	 				{ 'root' : __dirname}));
+
 app.get('/private',
 	// IF we are logged in...
 	// TODO
 	// Go to the user's page ('/private/' + req.user)
 	(req, res) => {
+		
 		res.redirect('/private/' + req.user)
 	});
 
