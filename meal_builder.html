@@ -10,40 +10,57 @@
     <div class="container">
         <div class="row">
           <div class="col-sm py-5 h-1000">
-              <h3 class ="text-center outlinedtext mb-3">Choice of:</h3>
+              <h3 class ="text-center outlinedtext mb-3">Pick your foods here. Note that any nutrient information is assuming 1 serving.</h3>
             <select class= "form-select form-select-lg mb-5"  id = "protein">
                 <option selected>Protein</option>
-                <option value='Chicken'>Chicken</option>
-                <option value='Pork'>Pork</option>
-                <option value='Beef'>Beef</option>
+                <option id = "chicken-tenderloin" value='chicken tenderloin'>Chicken Tenderloin</option>
+                <option id = "chicken-breast" value='chicken breast'>Chicken breast</option>
+                <option id = "rotisserie-chicken" value='rotisserie chicken'>Rotisserie chicken</option>
+                <option id = "boneless-skinless-chicken-thigh" value='boneless skinless chicken thigh'>Rotisserie chicken</option>
+                <option id = "bacon" value='bacon'>Bacon</option>
+                <option id = "sirloin-steak" value='sirloin steak'>Sirloin steak</option>
+                <option id = "ground-beef" value='93% lean ground beef'>93% lean ground beef</option>
+                <option id = "filet" value='beef tenderloin (filet)'>Beef tenderloin (filet)</option>
+                <option id = "ground-turky" value='lean ground turkey'>Lean ground turkey</option>
+                <option id = "eggs" value='eggs'>Eggs (2)</option>
+                <option id = "egg-whites" value='egg whites'>Egg whites</option>
+                
             </select>
             <select class= "form-select form-select-lg mb-5" id = "carbs">
                 <option selected>Carbs</option>
-                <option value="Apple">Apple</option>
-                <option value="Corn">Corn</option>
-                <option value="Pasta">Pasta</option>
+                <option id = "jasmine-rice" value='jasmine rice'>Jasmine rice</option>
+                <option id = "brown-rice" value='brown rice'>Brown rice</option>
+                <option id = "pasta" value='pasta'>Pasta</option>
+                <option id = "potato" value='potato'>Potato</option>
+                <option id = "sweet-potato" value='sweet potato'>Sweet potato</option>
+                <option id = "oats" value='oats'>Oats</option>
             </select>
             <select class= "form-select form-select-lg mb-5" id = "vegetables">
                 <option selected>Vegetables</option>
-                <option value="Broccoli">Broccoli</option>
-                <option value="Lettuce">Lettuce</option>
-                <option value="Spinach">Spinach</option>
+                <option id = "spinach" value='spinach'>Spinach</option>
+                <option id = "broccoli" value='broccoli'>Broccoli</option>
+                <option id = "bell-pepper" value='bell pepper'>Bell pepper</option>
+                <option id = "brussell-sprouts" value='brussel sprouts'>Brussel sprouts</option>
+                <option id = "zuchini" value='zuchini'>Zuchini</option>
             </select>
             <select class= "form-select form-select-lg mb-5" id = "condiments">
                 <option selected>Condiments</option>
-                <option value="Ketchup">Ketchup</option>
-                <option value="BBQ Sauce">BBQ Sauce</option>
-                <option value="Mayo">Mayo</option>
+                <option id = "mayo" value='mayo'>Mayo</option>
+                <option id = "mustard" value='mustard'>Mustard</option>
+                <option id = "ketchup" value='ketchup'>Ketchup</option>
+                <option id = "bbq-sauce" value='bbq sauce'>BBQ Sauce</option>
             </select>
             <select class= "form-select form-select-lg mb-5" id = "addons">
                 <option selected>Add-ons</option>
-                <option value="Pudding">Pudding</option>
-                <option value="Corn Bread">Corn Bread</option>
-                <option value="Soup">Soup</option>
+                <option id = "greek-yogurt-cup" value="greek yogurt cup">Greek yogurt cup</option>
+                <option id = "chocolate-chip-cookie" value="chocolate chip cookie">Chocolate chip cookie</option>
+                <option id = "banana" value="banana">Banana</option>
+                <option id = "apple" value="apple">Apple</option>
+                <option id = "orange" value="orange">Orange</option>
             </select>
           </div>
           <div class="col-sm py-5 h-1000">
-            <h3 class ="text-center outlinedtext mb-3">Selections</h3>
+            <h3 class ="text-center outlinedtext mb-3">Costs for each category: </h3>
             <ul class= "list-group-lg" style="list-style-type:none;">
               <br>
               <li class="list-group-item rounded-3 mb-5" id="Prot">Protein</li>

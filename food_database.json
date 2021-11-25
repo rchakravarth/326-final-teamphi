@@ -1,0 +1,53 @@
+{
+    "protein":
+        {
+            "chicken tenderloin":{"calories":110,"protein": 25, "fat":0.5, "carb":0, "price": 1.75},
+            "chicken breast":{"calories":126,"protein": 25, "fat":2.9, "carb":0, "price": 1.00},
+            "rotiserie chicken":{"calories":220,"protein": 32.8, "fat":9.6, "carb":0, "price": 3.00},
+            "boneless skinless chicken thigh":{"calories":184,"protein": 27, "fat":8.7, "carb":0, "price":1.25},
+            "bacon":{"calories":161,"protein": 25, "fat":0.5, "carb":0, "price":1.25},
+            "sirloin steak":{"calories":207,"protein": 23, "fat":12, "carb":0, "price": 3.00},
+            "93% lean ground beef":{"calories":178,"protein": 25, "fat":8.1, "carb":0, "price": 3.00},
+            "beef tenderloin (filet)":{"calories":227,"protein": 22, "fat":15, "carb":0, "price": 15.99},
+            "lean ground turkey":{"calories":128,"protein": 27, "fat":2.3, "carb":0, "price": 1.00},
+            "eggs":{"calories":144,"protein": 12.7, "fat":4.8, "carb":0.4, "price": 1.2},
+            "egg whites":{"calories":100,"protein": 25, "fat":0.4, "carb":0.8, "price": 2}
+        }
+    ,
+    "carbs":
+        {
+            "jasmine rice":{"calories":205,"protein": 4.3, "fat":0.4, "carb":45, "price": 1.00}, 
+            "brown rice":{"calories":218,"protein": 1.6, "fat":0.6, "carb":46, "price": 1.50},
+            "pasta":{"calories":196,"protein": 7.2, "fat":1.6, "carb":38, "price": 1.00},
+            "potato":{"calories":161,"protein": 4.3, "fat":0.2, "carb":37, "price": 1.25},
+            "sweet potato":{"calories":155,"protein": 3.4, "fat":0.3, "carb":36, "price": 1.25},
+            "oats":{"calories":306,"protein": 10.6, "fat":5.2, "carb":54, "price": 1}
+        }
+    ,
+    "vegetables":
+        {
+            "spinach":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
+            "broccoli":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
+            "bell pepper":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
+            "brussell sprouts":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
+            "zuchini":{"calories":25, "protein": 0, "fat":0, "carb":0, "price": 1.00}
+        }
+    ,
+    "condiments":
+        {
+            "mayo":{"calories":180,"protein": 0, "fat":20, "carb":0, "price": 0.1},
+            "mustard":{"calories":20,"protein": 1, "fat":1, "carb":2, "price": 0.1},
+            "ketchup":{"calories":40,"protein": 0, "fat":0, "carb":10, "price": 0.1},
+            "bbq sauce":{"calories":80,"protein":0, "fat":0, "carb":20, "price": 0.25},
+            "sriracha":{"calories":10,"protein": 0, "fat":0, "carb":2.5, "price": 0.1}
+        }
+    ,
+    "addons":
+        {
+            "greek yogurt cup":{"calories":80,"protein": 14, "fat":3, "carb":6, "price": 2.00},
+            "chocolate chip cookie":{"calories":220,"protein": 3, "fat":11, "carb":30, "price": 0.99},
+            "banana":{"calories":100,"protein": 0, "fat":0, "carb":25, "price": 0.3},
+            "apple":{"calories":110,"protein": 2, "fat":0, "carb":25, "price": 0.4},
+            "orange":{"calories":80,"protein": 1, "fat":0, "carb":19, "price": 0.3}
+        }
+}
