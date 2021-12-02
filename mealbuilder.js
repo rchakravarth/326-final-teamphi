@@ -20,88 +20,64 @@ async function getData(url) {
 
 // 
 const foodData = await getData(url);
-
-document.getElementById('protein').addEventListener('click', () => {
+var protein_price = 0, carb_price = 0, veg_price = 0, cond_price = 0, addons_price = 0;
+document.getElementById('protein').addEventListener('change', () => {
     const protein = document.getElementById('protein').value;
-    const protein_price = foodData["protein"][protein].price;
+    protein_price = foodData["protein"][protein].price;
     document.getElementById('Prot').innerHTML = protein + ': $' + protein_price;
 });
 
-document.getElementById('carbs').addEventListener('click', () => {
+document.getElementById('carbs').addEventListener('change', () => {
     const carb = document.getElementById('carbs').value;
-    const carb_price = foodData["carbs"][carb].price;
+    carb_price = foodData["carbs"][carb].price;
     document.getElementById('Carb').innerHTML = carb + ': $' + carb_price;
 });
 
-document.getElementById('vegetables').addEventListener('click', () => {
+document.getElementById('vegetables').addEventListener('change', () => {
     const veg = document.getElementById('vegetables').value;
-    const veg_price = foodData["vegetables"][veg].price;
+    veg_price = foodData["vegetables"][veg].price;
     document.getElementById('Veg').innerHTML = veg + ': $' + veg_price;
 });
 
-document.getElementById('condiments').addEventListener('click', () => {
+document.getElementById('condiments').addEventListener('change', () => {
     const cond = document.getElementById('condiments').value;
-    const cond_price = foodData["condiments"][cond].price;
+    cond_price = foodData["condiments"][cond].price;
     document.getElementById('Cond').innerHTML = cond + ': $' + cond_price;
 });
 
-document.getElementById('addons').addEventListener('click', () => {
+document.getElementById('addons').addEventListener('change', () => {
     const addons = document.getElementById('addons').value;
-    const addons_price = foodData["addons"][addons].price;
+    addons_price = foodData["addons"][addons].price;
     document.getElementById('ao').innerHTML = addons + ': $' + addons_price;
 });
 
-document.getElementById('addons').addEventListener('click', () => {
-    const ao = document.getElementById('addons').value;
-    const veg = document.getElementById('vegetables').value;
-    const cond = document.getElementById('condiments').value;
-    const carb = document.getElementById('carbs').value;
-    const prot = document.getElementById('protein').value;
-    const total = foodData["protein"][prot].price + foodData["addons"][ao].price + foodData["vegetables"][veg].price + 
-    foodData["carbs"][carb].price + foodData["condiments"][cond].price;
+document.getElementById('addons').addEventListener('change', () => {
+    const total = protein_price + carb_price + veg_price + 
+    cond_price + addons_price;
     document.getElementById('total').innerHTML = '$' + total;
 });
 
-document.getElementById('condiments').addEventListener('click', () => {
-    const ao = document.getElementById('addons').value;
-    const veg = document.getElementById('vegetables').value;
-    const cond = document.getElementById('condiments').value;
-    const carb = document.getElementById('carbs').value;
-    const prot = document.getElementById('protein').value;
-    const total = foodData["protein"][prot].price + foodData["addons"][ao].price + foodData["vegetables"][veg].price + 
-    foodData["carbs"][carb].price + foodData["condiments"][cond].price;
+document.getElementById('condiments').addEventListener('change', () => {
+    const total = protein_price + carb_price + veg_price + 
+    cond_price + addons_price;
     document.getElementById('total').innerHTML = '$' + total;
 });
 
-document.getElementById('vegetables').addEventListener('click', () => {
-    const ao = document.getElementById('addons').value;
-    const veg = document.getElementById('vegetables').value;
-    const cond = document.getElementById('condiments').value;
-    const carb = document.getElementById('carbs').value;
-    const total = foodData["protein"][prot].price + foodData["addons"][ao].price + foodData["vegetables"][veg].price + 
-    foodData["carbs"][carb].price + foodData["condiments"][cond].price;
+document.getElementById('vegetables').addEventListener('change', () => {
+    const total = protein_price + carb_price + veg_price + 
+    cond_price + addons_price;
     document.getElementById('total').innerHTML = '$' + total;
 });
 
-document.getElementById('carbs').addEventListener('click', () => {
-    const ao = document.getElementById('addons').value;
-    const veg = document.getElementById('vegetables').value;
-    const cond = document.getElementById('condiments').value;
-    const carb = document.getElementById('carbs').value;
-    const prot = document.getElementById('protein').value;
-    const total = foodData["protein"][prot].price + foodData["addons"][ao].price + foodData["vegetables"][veg].price + 
-    foodData["carbs"][carb].price + foodData["condiments"][cond].price;
+document.getElementById('carbs').addEventListener('change', () => {
+    const total = protein_price + carb_price + veg_price + 
+    cond_price + addons_price;
     document.getElementById('total').innerHTML = '$' + total;
 });
 
-document.getElementById('protein').addEventListener('click', () => {
-    const ao = document.getElementById('addons').value;
-    const veg = document.getElementById('vegetables').value;
-    const cond = document.getElementById('condiments').value;
-    const carb = document.getElementById('carbs').value;
-    const prot = document.getElementById('protein').value;
-    const total = foodData["protein"][prot].price + foodData["addons"][ao].price + foodData["vegetables"][veg].price + 
-    foodData["carbs"][carb].price + foodData["condiments"][cond].price;
+document.getElementById('protein').addEventListener('change', () => {
+    const total = protein_price + carb_price + veg_price + 
+    cond_price + addons_price;
     document.getElementById('total').innerHTML = '$' + total;
 });
 
@@ -109,6 +85,6 @@ document.getElementById('protein').addEventListener('click', () => {
     
 // })
 
-document.getElementById("show-macros").addEventListener('click',()=>{
+/* document.getElementById("show-macros").addEventListener('click',()=>{
     const
-})
+})*/
