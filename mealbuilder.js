@@ -85,6 +85,27 @@ document.getElementById('protein').addEventListener('change', () => {
     
 // })
 
-/* document.getElementById("show-macros").addEventListener('click',()=>{
-    const
-})*/
+document.getElementById("show-macros").addEventListener('click',()=>{
+    const addon = document.getElementById('addons').value;
+    const veg = document.getElementById('vegetables').value;
+    const cond = document.getElementById('condiments').value;
+    const carbohydrates = document.getElementById('carbs').value;
+    const prot = document.getElementById('protein').value;
+    
+    const totalCarbs = foodData["addons"][addon].carb + foodData["vegetables"][veg].carb + 
+    foodData["condiments"][cond].carb + foodData["carbs"][carbohydrates].carb + foodData["protein"][prot].carb;
+
+    const totalFats = foodData["addons"][addon].fat + foodData["vegetables"][veg].fat + 
+    foodData["condiments"][cond].fat + foodData["carbs"][carbohydrates].fat + foodData["protein"][prot].fat;
+
+    const totalProtein = foodData["addons"][addon].protein + foodData["vegetables"][veg].protein + 
+    foodData["condiments"][cond].protein + foodData["carbs"][carbohydrates].protein + foodData["protein"][prot].protein;
+
+    const totalCalories = foodData["addons"][addon].calories + foodData["vegetables"][veg].calories + 
+    foodData["condiments"][cond].calories + foodData["carbs"][carbohydrates].calories + foodData["protein"][prot].calories;
+
+    document.getElementById("total_protein").innerHTML = totalProtein + 'g';
+    document.getElementById("total_carb").innerHTML = totalCarbs + 'g';
+    document.getElementById("total_fat").innerHTML = totalFats + 'g';
+    document.getElementById("total_calories").innerHTML = totalCalories + ' calories';
+})
