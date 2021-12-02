@@ -54,31 +54,31 @@ document.getElementById('addons').addEventListener('change', () => {
 document.getElementById('addons').addEventListener('change', () => {
     const total = protein_price + carb_price + veg_price + 
     cond_price + addons_price;
-    document.getElementById('total').innerHTML = '$' + total;
+    document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
 document.getElementById('condiments').addEventListener('change', () => {
     const total = protein_price + carb_price + veg_price + 
     cond_price + addons_price;
-    document.getElementById('total').innerHTML = '$' + total;
+    document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
 document.getElementById('vegetables').addEventListener('change', () => {
     const total = protein_price + carb_price + veg_price + 
     cond_price + addons_price;
-    document.getElementById('total').innerHTML = '$' + total;
+    document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
 document.getElementById('carbs').addEventListener('change', () => {
     const total = protein_price + carb_price + veg_price + 
     cond_price + addons_price;
-    document.getElementById('total').innerHTML = '$' + total;
+    document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
 document.getElementById('protein').addEventListener('change', () => {
     const total = protein_price + carb_price + veg_price + 
     cond_price + addons_price;
-    document.getElementById('total').innerHTML = '$' + total;
+    document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
 // document.getElementById("save").addEventListener('click', () =>{
