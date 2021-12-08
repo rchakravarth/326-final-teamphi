@@ -36,6 +36,6 @@ Here is the sign in screen when succesfully logging in
 
 Rishab Chakravarthy: Created dummy server, created markdown 2 document, linked github repo to Heroku
 
-Kenny Duong: Added js coding into login page.  Modified html files for login and registration and continued to work and fix the server file. 
+Kenny Duong: Added js coding into login page.  Modified the register.html and signin.html and adjusted the server.js file.
 
 Zach Reynolds: Created the mealbuilder.js file to interface with its respective .html file.
