@@ -27,23 +27,21 @@ const session = {
 
 // Passport configuration
 
-const strategy = new LocalStrategy(
-    async (email, password, done) => {
-	if (!findUser(email)) {
-	    // no such user
-	    return done(null, false, { 'message' : 'Wrong email' });
+
+const strategy = new LocalStrategy({
+	usernameField: 'email'
+},
+	async (username, password, done) => {
+	if (!findUser(username)) {
+		await new Promise((r) => setTimeout(r, 2000)); // two second delay
+		return done(null, false, { 'message' : 'Wrong username' });
 	}
-	if (!validatePassword(email, password)) {
-	    // invalid password
-	    // should disable logins after N messages
-	    // delay return to rate-limit brute-force attacks
-	    await new Promise((r) => setTimeout(r, 2000)); // two second delay
-	    return done(null, false, { 'message' : 'Wrong password' });
+	if (!validatePassword(username, password)) {
+		await new Promise((r) => setTimeout(r, 2000)); // two second delay
+		return done(null, false, { 'message' : 'Wrong password' });
 	}
-	// success!
-	// should create a user object here, associated with a unique identifier
-	return done(null, email);
-    });
+	return done(null, username);
+	});
 
 
 // App configuration
@@ -75,21 +73,22 @@ let userMap = {};
 // Returns true iff the user exists.
 function findUser(username) {
     if (!users[username]) {
-	console.log("no user");
+	
 	return false;
     } else {
-	console.log("found user");
+	
 	return true;
     }
 }
 
 function validatePassword(name, pwd) {
+	console.log("validating pass")
     if (!findUser(name)) {
-	console.log("userfail");
+	
 	return false;
     }
     if (users[name] !== pwd) {
-	console.log("passfail");
+	
 	return false;
     }
     return true;
@@ -122,9 +121,10 @@ app.get('/',
 	});
 
 app.post('/login',
-	//passport.authenticate('local', { failureRedirect: '/login' }),
+	passport.authenticate('local', {
+		'failureRedirect' : '/login'
+	}),
 	function(req, res) {
-	  console.log("hi")
 	  res.redirect('/');
 	});
   
@@ -138,11 +138,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/login'); 
 });
 
-app.get('/meal',
-	(req, res) => res.sendFile('meal_builder.html',
-					{'root' : _dirname}));
-	
-
 app.post('/register',
 	 (req, res) => {
 	     const email = req.body['email'];
@@ -152,7 +147,7 @@ app.post('/register',
 			res.redirect('/login');
 		 }
 		 else {
-			 res.redirect('/register');
+			res.redirect('/register');
 		 }
 	 });
 
