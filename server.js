@@ -16,8 +16,8 @@ const LocalStrategy = require('passport-local').Strategy; // username/password s
 const app = express();
 const port = process.env.PORT || 3000;
 
-
-// Session configuration
+//const minicrypt = require('./miniCrypt');
+//const mc = new minicrypt();
 
 const session = {
     secret : process.env.SECRET || 'SECRET', // set this encryption key in Heroku config (never in GitHub)!
@@ -27,23 +27,21 @@ const session = {
 
 // Passport configuration
 
-const strategy = new LocalStrategy(
-    async (email, password, done) => {
-	if (!findUser(email)) {
-	    // no such user
-	    return done(null, false, { 'message' : 'Wrong email' });
+
+const strategy = new LocalStrategy({
+	usernameField: 'email'
+},
+	async (username, password, done) => {
+	if (!findUser(username)) {
+		await new Promise((r) => setTimeout(r, 2000)); // two second delay
+		return done(null, false, { 'message' : 'Wrong username' });
 	}
-	if (!validatePassword(email, password)) {
-	    // invalid password
-	    // should disable logins after N messages
-	    // delay return to rate-limit brute-force attacks
-	    await new Promise((r) => setTimeout(r, 2000)); // two second delay
-	    return done(null, false, { 'message' : 'Wrong password' });
+	if (!validatePassword(username, password)) {
+		await new Promise((r) => setTimeout(r, 2000)); // two second delay
+		return done(null, false, { 'message' : 'Wrong password' });
 	}
-	// success!
-	// should create a user object here, associated with a unique identifier
-	return done(null, email);
-    });
+	return done(null, username);
+	});
 
 
 // App configuration
@@ -75,65 +73,46 @@ let userMap = {};
 // Returns true iff the user exists.
 function findUser(username) {
     if (!users[username]) {
+	
 	return false;
     } else {
+	
 	return true;
     }
 }
 
-// Returns true iff the password is the one we have stored (in plaintext = bad but easy).
 function validatePassword(name, pwd) {
+	console.log("validating pass")
     if (!findUser(name)) {
+	
 	return false;
     }
     if (users[name] !== pwd) {
+	
 	return false;
     }
     return true;
 }
 
-// Add a user to the "database".
-// Return true if added, false otherwise (because it was already there).
-// TODO
 function addUser(name, pwd) {
 	if(!findUser(name)) {
 		users[name] = pwd;
-		
 		return true;
 	}
 	else {
-		
 		return false;
 	}
 }
 
-// Routes
-
 function checkLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-		
+	
 	next();
     } else {
-		
+	
 	res.redirect('/login');
     }
 }
-
-/*app.get('/user/id/saved-meals',(req, res) => {
-    res.send({"name: ": faker.name.findName()})
-});
-
-app.get('/user',(req, res) => {
-    res.send({"name: ": faker.name.findName()})
-});
-
-app.get('/user/new',(req, res) => {
-    res.send({"name: ": faker.name.findName()})
-});
-
-app.get('/user/id/mealbuilder',(req, res) => {
-    res.send({"name: ": faker.name.findName()})
-});*/
 
 app.get('/',
 	checkLoggedIn,
@@ -141,39 +120,34 @@ app.get('/',
 	    res.send("hello world");
 	});
 
-
 app.post('/login',
-	 passport.authenticate('local' , {     // use username/password authentication
-	     'successRedirect' : '/private',   // when we login, go to /private 
-	     'failureRedirect' : '/login'      // otherwise, back to login
-	 }));
+	passport.authenticate('local', {
+		'failureRedirect' : '/login'
+	}),
+	function(req, res) {
+	  res.redirect('/');
+	});
+  
 
 app.get('/login',
 	(req, res) => res.sendFile('sign_in.html',
 				   { 'root' : __dirname }));
 
-// Handle logging out (takes us back to the login page).
 app.get('/logout', (req, res) => {
-    req.logout(); // Logs us out!
-    res.redirect('/login'); // back to login
+    req.logout(); 
+    res.redirect('/login'); 
 });
-
-
 
 app.post('/register',
 	 (req, res) => {
 	     const email = req.body['email'];
 	     const password = req.body['password'];
-		 
-	     // TODO
-	     // Check if we successfully added the user.
-	     // If so, redirect to '/login'
-	     // If not, redirect to '/register'.
 		 if (addUser(email, password)) {
+			console.log(users);
 			res.redirect('/login');
 		 }
 		 else {
-			 res.redirect('/register');
+			res.redirect('/register');
 		 }
 	 });
 
@@ -181,36 +155,10 @@ app.get('/register',
 	(req, res) => res.sendFile('register.html',
 				   { 'root' : __dirname }));
 
-// Private data
-app.get('/meal',
-	 (req, res) => res.sendFile('meal_builder.html',
-	 				{ 'root' : __dirname}));
 
-app.get('/private',
-	// IF we are logged in...
-	// TODO
-	// Go to the user's page ('/private/' + req.user)
-	(req, res) => {
-		
-		res.redirect('/private/' + req.user)
-	});
-
-// A dummy page for the user.
-app.get('/private/:userID/',
-	checkLoggedIn, // We also protect this route: authenticated...
-	(req, res) => {
-	    // Verify this is the right user.
-	    if (req.params.userID === req.user) {
-		res.writeHead(200, {"Content-Type" : "text/html"});
-		res.write('<H1>HELLO ' + req.params.userID + "</H1>");
-		res.write('<br/><a href="/logout">click here to logout</a>');
-		res.end();
-	    } else {
-		res.redirect('/private/');
-	    }
-	});
 
 app.use(express.static('html'));
+app.use(express.static())
 
 app.get('*', (req, res) => {
   res.send('Error');
