@@ -158,6 +158,7 @@ app.get('/register',
 
 
 app.use(express.static('html'));
+app.use(express.static())
 
 app.get('*', (req, res) => {
   res.send('Error');
