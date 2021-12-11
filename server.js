@@ -98,10 +98,9 @@ let users = { 'emery' : [
 	'2401f90940e037305f71ffa15275fb0d',
 	'61236629f33285cbc73dc563cfc49e96a00396dc9e3a220d7cd5aad0fa2f3827d03d41d55cb2834042119e5f495fc3dc8ba3073429dd5a5a1430888e0d115250'
   ] };
-   // default user
-let userMap = {};
+  
 
-// Returns true iff the user exists.
+// Returns true if the user exists.
 function findUser(username) {
     if (!users[username]) {
 	
@@ -113,7 +112,6 @@ function findUser(username) {
 }
 
 function validatePassword(name, pwd) {
-	console.log("validating pass")
     if (!findUser(name)) {
 	
 	return false;
