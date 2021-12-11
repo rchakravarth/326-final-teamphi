@@ -15,8 +15,9 @@ const passport = require('passport');               // handles authentication
 const LocalStrategy = require('passport-local').Strategy; // username/password strategy
 const app = express();
 const port = process.env.PORT || 3000;
-const minicrypt = require('./miniCrypt');
-const mc = new minicrypt();
+
+//const minicrypt = require('./miniCrypt');
+//const mc = new minicrypt();
 
 const session = {
     secret : process.env.SECRET || 'SECRET', // set this encryption key in Heroku config (never in GitHub)!
@@ -66,12 +67,8 @@ app.use(express.urlencoded({'extended' : true})); // allow URLencoded data
 /////
 
 // we use an in-memory "database"; this isn't persistent but is easy
-let users = { 'emery' : [
-	'2401f90940e037305f71ffa15275fb0d',
-	'61236629f33285cbc73dc563cfc49e96a00396dc9e3a220d7cd5aad0fa2f3827d03d41d55cb2834042119e5f495fc3dc8ba3073429dd5a5a1430888e0d115250'
-  ] };
-   // default user
-let userMap = {};
+const users = { 'usertest@gmail.com' : '123' }; // default user
+const userMap = {};
 
 // Returns true iff the user exists.
 function findUser(username) {
@@ -85,25 +82,27 @@ function findUser(username) {
 }
 
 function validatePassword(name, pwd) {
-	console.log("validating pass")
+	console.log("validating pass");
     if (!findUser(name)) {
 	
 	return false;
     }
-	if (!mc.check(pwd, users[name][0], users[name][1])) {
-		return false;
-		}
-		return true;
-	}
+    if (users[name] !== pwd) {
+	
+	return false;
+    }
+    return true;
+}
 
-	function addUser(name, pwd) {
-		if (findUser(name)) {
-		return false;
-		}
-		const [salt, hash] = mc.hash(pwd);
-		users[name] = [salt, hash];
+function addUser(name, pwd) {
+	if(!findUser(name)) {
+		users[name] = pwd;
 		return true;
 	}
+	else {
+		return false;
+	}
+}
 
 function checkLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
@@ -159,7 +158,7 @@ app.get('/register',
 
 
 app.use(express.static('html'));
-app.use(express.static())
+app.use(express.static(__dirname));
 
 app.get('*', (req, res) => {
   res.send('Error');
