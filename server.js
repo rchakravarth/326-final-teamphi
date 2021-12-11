@@ -2,12 +2,39 @@
 
 import {createRequire} from 'module';
 const require = createRequire(import.meta.url);
+import pgp from "pg-promise";
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // For loading environment variables.
 require('dotenv').config();
+
+//Database stuff
+/*******************************************************************************************************/
+const sql_username = "postgres";
+const sql_password = "admin";
+
+const url = process.env.DATABASE_URL || `postgres://${sql_username}:${sql_password}@localhost/`;
+const db = pgp()(url);
+
+async function connectAndRun(task) {
+    let connection = null;
+
+    try {
+        connection = await db.connect();
+        return await task(connection);
+    } catch (e) {
+        throw e;
+    } finally {
+        try {
+            connection.done();
+        } catch(ignored) {
+
+        }
+    }
+}
+/**************************************************************************************************************/
 
 const express = require('express');                 // express routing
 const expressSession = require('express-session');  // for managing session state
@@ -159,7 +186,6 @@ app.get('/register',
 
 
 app.use(express.static('html'));
-// app.use(express.static())
 
 app.get('*', (req, res) => {
   res.send('Error');
