@@ -15,7 +15,7 @@ const passport = require('passport');               // handles authentication
 const LocalStrategy = require('passport-local').Strategy; // username/password strategy
 const app = express();
 const port = process.env.PORT || 3000;
-const minicrypt = require('./miniCrypt');
+const minicrypt = require('./miniCrypt.cjs');
 const mc = new minicrypt();
 
 const session = {
@@ -159,7 +159,7 @@ app.get('/register',
 
 
 app.use(express.static('html'));
-app.use(express.static())
+app.use(express.static(__dirname));
 
 app.get('*', (req, res) => {
   res.send('Error');
