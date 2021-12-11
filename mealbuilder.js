@@ -79,7 +79,11 @@ document.getElementById('protein').addEventListener('change', () => {
 });
 
 // document.getElementById("save").addEventListener('click', () =>{
-    
+//     meals.proteins.push(document.getElementById('protein').value);
+//     meals.carbs.push(document.getElementById('carbs').value);
+//     meals.vegetables.push(document.getElementById('vegetables').value);
+//     meals.condiments.push(document.getElementById('condiments').value);
+//     meals.add_ons.push(document.getElementById('addons').value);
 // })
 
 document.getElementById("show-macros").addEventListener('click',()=>{
@@ -101,8 +105,8 @@ document.getElementById("show-macros").addEventListener('click',()=>{
     const totalCalories = foodData["addons"][addon].calories + foodData["vegetables"][veg].calories + 
     foodData["condiments"][cond].calories + foodData["carbs"][carbohydrates].calories + foodData["protein"][prot].calories;
 
-    document.getElementById("total_protein").innerHTML = totalProtein + 'g';
-    document.getElementById("total_carb").innerHTML = totalCarbs + 'g';
-    document.getElementById("total_fat").innerHTML = totalFats + 'g';
+    document.getElementById("total_protein").innerHTML = totalProtein + 'g protein';
+    document.getElementById("total_carb").innerHTML = totalCarbs + 'g carbs';
+    document.getElementById("total_fat").innerHTML = totalFats + 'g fats';
     document.getElementById("total_calories").innerHTML = totalCalories + ' calories';
 })

@@ -29,7 +29,7 @@
             "spinach":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
             "broccoli":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
             "bell pepper":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
-            "brussell sprouts":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
+            "brussel sprouts":{"calories":25,"protein": 0, "fat":0, "carb":0, "price": 1.00},
             "zuchini":{"calories":25, "protein": 0, "fat":0, "carb":0, "price": 1.00}
         }
     ,
