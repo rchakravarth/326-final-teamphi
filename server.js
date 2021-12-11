@@ -31,7 +31,6 @@ async function connectAndRun(task) {
         try {
             connection.done();
         } catch(ignored) {
-
         }
     }
 }
@@ -92,7 +91,6 @@ app.use(express.json()); // allow JSON inputs
 app.use(express.urlencoded({'extended' : true})); // allow URLencoded data
 
 /////
-
 // we use an in-memory "database"; this isn't persistent but is easy
 let users = { 'emery' : [
 	'2401f90940e037305f71ffa15275fb0d',
@@ -103,18 +101,15 @@ let users = { 'emery' : [
 // Returns true if the user exists.
 function findUser(username) {
     if (!users[username]) {
-	
-	return false;
+		return false;
     } else {
-	
-	return true;
+		return true;
     }
 }
 
 function validatePassword(name, pwd) {
     if (!findUser(name)) {
-	
-	return false;
+		return false;
     }
 	if (!mc.check(pwd, users[name][0], users[name][1])) {
 		return false;
@@ -133,19 +128,15 @@ function validatePassword(name, pwd) {
 
 function checkLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-	
-	next();
+		next();
     } else {
-	
-	res.redirect('/login');
+		res.redirect('/login');
     }
 }
 
 app.get('/',
 	checkLoggedIn,
-	(req, res) => {
-	    res.send("hello world");
-	});
+	(req, res) => { res.send("hello world"); });
 
 app.post('/login',
 	passport.authenticate('local', {
@@ -156,33 +147,35 @@ app.post('/login',
 	});
   
 
-app.get('/login',
-	(req, res) => res.sendFile('sign_in.html',
-				   { 'root' : __dirname }));
+app.get('/login', (req, res) => res.sendFile('sign_in.html', { 'root' : __dirname }));
 
-app.get('/logout', (req, res) => {
-    req.logout(); 
-    res.redirect('/login'); 
+app.get('/logout', (req, res) => { req.logout(); res.redirect('/login');});
+
+app.post('/register', (req, res) => {
+	const email = req.body['email'];
+	const password = req.body['password'];
+	if (addUser(email, password)) {
+		console.log(users);
+		res.redirect('/login');
+	}
+	else {
+		res.redirect('/register');
+	}
 });
 
-app.post('/register',
-	 (req, res) => {
-	     const email = req.body['email'];
-	     const password = req.body['password'];
-		 if (addUser(email, password)) {
-			console.log(users);
-			res.redirect('/login');
-		 }
-		 else {
-			res.redirect('/register');
-		 }
-	 });
+app.get('/register', (req, res) => res.sendFile('register.html',{ 'root' : __dirname }));
 
-app.get('/register',
-	(req, res) => res.sendFile('register.html',
-				   { 'root' : __dirname }));
-
-
+// Warning: endpoint is currently not functioning properly, terminates server when called upon
+app.get('/mealbuilder', (req, res) => 
+{
+	let body = '';
+        req.on('data', data => body += data);
+        req.on('end', async () => {
+            const data = JSON.parse(body);
+            await connectAndRun(db => db.none("INSERT INTO meals VALUES($1, $2, $3, $4, $5);", [data.protein, data.carbs, data.fat, data.condiments, data.addons]));
+            res.end();
+        });
+});
 
 app.use(express.static('html'));
 

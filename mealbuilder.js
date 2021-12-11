@@ -78,13 +78,23 @@ document.getElementById('protein').addEventListener('change', () => {
     document.getElementById('total').innerHTML = '$' + total.toFixed(2);
 });
 
-// document.getElementById("save").addEventListener('click', () =>{
-//     meals.proteins.push(document.getElementById('protein').value);
-//     meals.carbs.push(document.getElementById('carbs').value);
-//     meals.vegetables.push(document.getElementById('vegetables').value);
-//     meals.condiments.push(document.getElementById('condiments').value);
-//     meals.add_ons.push(document.getElementById('addons').value);
-// })
+// Currently not functioning properly, server crashes when trying to call end point
+document.getElementById('save').addEventListener('click', async () => {
+    const response = await fetch('./mealbuilder', {
+        method: 'POST',
+        body: JSON.stringify({
+            protein: document.getElementById('protein').value,
+            carbs: document.getElementById('carbs').value,
+            vegetables: document.getElementById('vegetables').value,
+            condiments: document.getElementById('condiments').value,
+            addons: document.getElementById('addons').value
+        })
+    });
+
+    if (!response.ok) {
+        console.error(`could not save meal to server`);
+    }
+})
 
 document.getElementById("show-macros").addEventListener('click',()=>{
     const addon = document.getElementById('addons').value;
