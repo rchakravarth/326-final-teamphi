@@ -1,2 +1,5 @@
 # ignore secrets.json
 secrets.json
+
+# ignore node_modules
+node_modules

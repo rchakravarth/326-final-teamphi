@@ -2,9 +2,40 @@
     "type": "module",
     "dependencies": {
         "dotenv": "^10.0.0",
+        "eslint": "^8.4.1",
         "express": "*",
         "express-session": "^1.17.2",
         "passport": "^0.5.0",
         "passport-local": "^1.0.0"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es2021": true,
+            "node": true
+        },
+        "extends": "eslint:recommended",
+        "parserOptions": {
+            "ecmaVersion": 12,
+            "sourceType": "module"
+        },
+        "rules": {
+            "consistent-return": "error",
+            "no-var": "error",
+            "eqeqeq": "error",
+            "semi": [
+                "error",
+                "always"
+            ],
+            "curly": [
+                "warn",
+                "all"
+            ],
+            "prefer-const": [
+                "warn",
+                {}
+            ]
+        }
     }
+
 }
