@@ -5,6 +5,7 @@ const require = createRequire(import.meta.url);
 import pgp from "pg-promise";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {writeFile, readFileSync, existsSync} from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // For loading environment variables.
@@ -125,7 +126,7 @@ function validatePassword(name, pwd) {
 
 	function addUser(name, pwd) {
 		if (findUser(name)) {
-		return false;
+			return false;
 		}
 		const [salt, hash] = mc.hash(pwd);
 		users[name] = [salt, hash];

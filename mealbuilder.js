@@ -17,7 +17,7 @@ async function getData(url) {
 // 
 const foodData = await getData(url);
 
-var protein_price = 0, carb_price = 0, veg_price = 0, cond_price = 0, addons_price = 0;
+let protein_price = 0, carb_price = 0, veg_price = 0, cond_price = 0, addons_price = 0;
 document.getElementById('protein').addEventListener('change', () => {
     const protein = document.getElementById('protein').value;
     protein_price = foodData["protein"][protein].price;
