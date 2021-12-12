@@ -13,7 +13,7 @@ fats, and protein in a meal as well as the total calories. Lastly, there is a "s
 save the current meal to the user's profile. This app separates itself from some of the other meal planning 
 applications that are out there as it includes a budget based on the serving size to give an estimated cost
 per meal.
-
+--------------------------------------------------------------------------------------------------------------------------
 User Interface:
 ![image](https://user-images.githubusercontent.com/60271599/145690911-13d89709-1038-44cd-80ce-ec2a278189e0.png)
 
@@ -37,3 +37,37 @@ Zach Reynolds, ztreyenolds
 
 Kenny Duong, kennyvduong
 
+--------------------------------------------------------------------------------------------------------------
+
+APIs:
+
+/login --> will let user log in using their credentials
+
+/register --> create user profile
+
+/ --> page to create the meals from the given options
+
+Currently not working:
+
+/mealbuilder: Supposed to save the current meal to SQL database (CRUD operations)
+
+------------------------------------------------------------------------------------------------------------------
+
+Database: 
+
+Here is the format of the meal object that we pull from the SQL database
+
+{"protein": string, "carb":string, "vegetable":string, "condiment": string, "addons":string }
+
+In the SQL table the format is as follows:
+
+Meal table
+
+| Attribute    | Data Type | Description              |
+|--------------|-----------|--------------------------|
+| meal_id      | String    | id of meal               |
+| protein      | String    | Type of protein          |
+| carbs        | String    | Type of carbs            |
+| vegetables   | String    | Type of vegetable        |
+| condiments   | String    | Type of condiment        |
+| addons       | String    | Type of addons           |
