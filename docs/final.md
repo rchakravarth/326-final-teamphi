@@ -82,7 +82,7 @@ Authentication happens when the user logs in so they should not be able to see t
 
 **Division of Labor**
 
-Rishab Chakravarthy: Created the wireframes for the sign-in, register and mealbuilder pages as well as helped build the actual UI
-of the mealbuilder page. Additionally, helped build the accompanying mealbuilder.js file for the mealbuilder html page and helped with the server by creating the mock endpoint data + attempted to create the database logic. Created the documents for each milestone as well as the final report.
+Rishab Chakravarthy: Created the wireframes for the sign-in and mealbuilder pages as well as helped build the actual UI
+of the mealbuilder page. Helped build the accompanying mealbuilder.js file for the mealbuilder html page and helped with the server by creating the mock endpoint data + attempted to create the database logic. Created the documents for each milestone as well as the final report.
 
 Kenny Duong: Created the html pages for the sign-in and register. Assisted in creating the html for the page that creates the meal.  Worked on developing the back-end coding for server.js, focusing on authenification and redirecting the pages.  
