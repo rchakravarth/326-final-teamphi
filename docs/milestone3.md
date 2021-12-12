@@ -37,4 +37,6 @@ Read() would retrieve the file, update would add a new meal to the file, and del
 Rishab Chakravarthy: Created the food_database json file to reference from. Also made changes to meal_builder.html as well as mealbuilder.js to account for the database.
 
 Zach Reynolds and Kenny Duong: Worked on logic for the server.js file.
+
+Zach Reynolds: Worked on the backend code for the mealbuilder.js file. Server logic including login functionality and minicrypt
   
