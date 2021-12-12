@@ -119,14 +119,19 @@ Meal Builder                    ___ / 35 pts
 CRUD                          ___ / 10 pts
 
 Create: 2.5 pt
+
  - Users
  - Meals
+
 Read: 2.5 pt
+
  - View personal meal
  - View meal items
  - View macros
+
 Update: 2.5 pt
  - Edit saved meal
+
 Delete: 2.5 pt
  - Delete the saved meal
 
