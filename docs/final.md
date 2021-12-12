@@ -71,3 +71,16 @@ Meal table
 | vegetables   | String    | Type of vegetable        |
 | condiments   | String    | Type of condiment        |
 | addons       | String    | Type of addons           |
+
+Functions for this database would be create() which would pull values from the textfields where the user selected each part of their meal and save it to the database Read() would retrieve the file, update would add a new meal to the file, and delete would delete a file. The save to profile button would allow the user to save the meal to their profile.
+
+The routing is as follows:
+
+/register (lets user create an account) --> /login (user logs in) ---> mealbuilder (create meal for the user to save)
+
+Authentication happens when the user logs in so they should not be able to see the mealbuilder page until they have logged in.
+
+**Division of Labor**
+
+Rishab Chakravarthy: Created the wireframes for the sign-in, register and mealbuilder pages as well as helped build the actual UI
+of the mealbuilder page. Additionally, helped build the accompanying mealbuilder.js file for the mealbuilder html page and helped with the server by creating the mock endpoint data + attempted to create the database logic. Created the documents for each milestone as well as the final report.
