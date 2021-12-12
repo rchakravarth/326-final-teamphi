@@ -83,6 +83,17 @@ Authentication happens when the user logs in so they should not be able to see t
 **Division of Labor**
 
 Rishab Chakravarthy: Created the wireframes for the sign-in and mealbuilder pages as well as helped build the actual UI
-of the mealbuilder page. Helped build the accompanying mealbuilder.js file for the mealbuilder html page and helped with the server by creating the mock endpoint data + attempted to create the database logic. Created the documents for each milestone as well as the final report.
+of the mealbuilder page. Helped build the accompanying mealbuilder.js file for the mealbuilder html page. Creating the mock endpoint data + worked on database logic. Created the documents for each milestone as well as the final report.
 
-Kenny Duong: Created the html pages for the sign-in and register. Assisted in creating the html for the page that creates the meal.  Worked on developing the back-end coding for server.js, focusing on authenification and redirecting the pages.  
+Kenny Duong: Created the html pages for the sign-in and register. Assisted in creating the html for the page that creates the meal.  Worked on developing the back-end coding for server.js, focusing on authenification and redirecting the pages. 
+
+**Conclusion**
+
+This project was definitely a challenging task. Most of us really only had experience coding on front-end only websites that did
+not rely on servers to relay information. This made implementing the back-end requirements by far the most difficult task. For the 
+most part, the requirements seemed mostly concrete but a lot of it seemed ambiguous which was not necessarily a bad thing. There was a bit of miscommunication regarding the method of data storage as one of our group members asked if we were allowed to use a 
+JSON file for our database like in the homeworks and were initially told it was fine but Erin, the TA that we had asked, said that 
+it was not allowed and that we had to use SQL/MongoDB. Additionally, the redirecting of the web pages was another challenge that we faced but were able to resolve by the end. 
+
+
+
