@@ -97,5 +97,42 @@ most part, the requirements seemed mostly concrete but a lot of it seemed ambigu
 JSON file for our database like in the homeworks and were initially told it was fine but Erin, the TA that we had asked, said that 
 it was not allowed and that we had to use SQL/MongoDB. Additionally, the redirecting of the web pages was another challenge that we faced but were able to resolve by the end. 
 
+**Rubric**
+
+Final Rubric
+
+Login/User Authentication    ___ / 30 pts
+ - Authentication
+ - Successfully create a user through sign up
+ - Successfully login a user
+ - Only able to view the details of the inner pages if you are a user.
+ - We acknowledge that the page will start to load the html if you are not logged in; however, no details will be displayed.
+ - Routing
+ - Linting/ code style
+
+Meal Builder                    ___ / 35 pts
+ - Successfully select items for a meal
+ - Successfully gives a total cost for your meal
+ - Successfully calculates macros for the meal
+ - Successfully save meal to profile
+
+CRUD                          ___ / 10 pts
+Create: 2.5 pt
+ - Users
+ - Meals
+Read: 2.5 pt
+ - View personal meal
+ - View meal items
+ - View macros
+Update: 2.5 pt
+ - Edit saved meal
+Delete: 2.5 pt
+ - Delete the saved meal
+
+
+Heroku Deployment         ___ / 10 pts
+Final Video 	+ Report                 ___ / 15 points
+
+Total: ___ / 100 points
 
 
